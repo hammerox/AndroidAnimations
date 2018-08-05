@@ -4,14 +4,14 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.mcustodio.animations.fragments.TestFragment.ViewModel" />
+            type="com.mcustodio.animations.fragments.ObjectAnimFragment.ViewModel" />
     </data>
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        tools:context="com.mcustodio.animations.fragments.TestFragment">
+        tools:context="com.mcustodio.animations.fragments.ObjectAnimFragment">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -19,7 +19,7 @@
             android:layout_weight="1">
 
             <TextView
-                android:id="@+id/text_test_string"
+                android:id="@+id/text_objanim_string"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -72,13 +72,13 @@
             android:gravity="center">
 
             <Button
-                android:id="@+id/button_test_animateDynamic"
+                android:id="@+id/button_objanim_animateDynamic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dynamic"/>
 
             <Button
-                android:id="@+id/button_test_animateXML"
+                android:id="@+id/button_objanim_animateXML"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="XML"/>

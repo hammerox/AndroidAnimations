@@ -1,4 +1,4 @@
-package com.mcustodio.animations.animTest
+package com.mcustodio.animations.fragments
 
 
 import android.animation.AnimatorInflater
@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.fragment_test.view.*
 
 class TestFragment : Fragment() {
 
-    private val viewModel by lazy {  ViewModelProviders.of(this).get(TestViewModel::class.java) }
+    private val viewModel by lazy {  ViewModelProviders.of(this).get(ViewModel::class.java) }
     private lateinit var binding: FragmentTestBinding
     private var currentAnimation: ValueAnimator? = null
 
@@ -64,7 +64,7 @@ class TestFragment : Fragment() {
 
 
     // ViewModel class
-    class TestViewModel(app: Application) : AndroidViewModel(app) {
+    class ViewModel(app: Application) : AndroidViewModel(app) {
         val duration = MutableLiveData<Long>()
         val finalValue = MutableLiveData<Float>()
 

@@ -5,9 +5,13 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_anim_objanim"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="ObjectAnimator" />
+        <item
             android:id="@+id/nav_anim_test"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Teste" />
+            android:title="ValueAnimator" />
     </group>
 
 </menu>

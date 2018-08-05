@@ -7,7 +7,8 @@ import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
-import com.mcustodio.animations.animTest.TestFragment
+import com.mcustodio.animations.fragments.ObjectAnimFragment
+import com.mcustodio.animations.fragments.TestFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            R.id.nav_anim_objanim -> replaceFragment(ObjectAnimFragment())
             R.id.nav_anim_test -> replaceFragment(TestFragment())
         }
 
