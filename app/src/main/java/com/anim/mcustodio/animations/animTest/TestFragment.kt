@@ -1,6 +1,7 @@
 package com.anim.mcustodio.animations.animTest
 
 
+import android.animation.AnimatorInflater
 import android.animation.ValueAnimator
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
@@ -21,6 +22,7 @@ class TestFragment : Fragment() {
 
     private val viewModel by lazy {  ViewModelProviders.of(this).get(TestViewModel::class.java) }
     private lateinit var binding: FragmentTestBinding
+    private var currentAnimation: ValueAnimator? = null
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -30,20 +32,34 @@ class TestFragment : Fragment() {
         binding.viewmodel = viewModel
         val view = binding.root
 
-        view.button_test_animate.setOnClickListener { animate() }
+        view.button_test_animateDynamic.setOnClickListener { animateDynamically() }
+        view.button_test_animateXML.setOnClickListener { animateXML() }
         return view
     }
 
-    private fun animate() {
-        ValueAnimator.ofFloat(0f, viewModel.finalValue.value!!).apply {
+    private fun animateDynamically() {
+        currentAnimation?.cancel()
+        currentAnimation = ValueAnimator.ofFloat(0f, viewModel.finalValue.value!!).apply {
             interpolator = AccelerateDecelerateInterpolator()
             duration = viewModel.duration.value!!
-            addUpdateListener { animation ->
-                val progress = animation.animatedValue as Float
+            addUpdateListener {
+                val progress = animatedValue as Float
                 view?.text_test_string?.translationY = progress
             }
             start()
         }
+    }
+
+    private fun animateXML() {
+        currentAnimation?.cancel()
+        currentAnimation = (AnimatorInflater.loadAnimator(context, R.animator.test_translatey) as ValueAnimator)
+                .apply {
+                    addUpdateListener {
+                        val progress = animatedValue as Float
+                        view?.text_test_string?.translationY = progress
+                    }
+                    start()
+                }
     }
 
 
