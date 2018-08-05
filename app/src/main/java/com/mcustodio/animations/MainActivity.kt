@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         viewModel.currentFragment.value = when (item.itemId) {
+            R.id.nav_anim_lottie -> FragmentList.LOTTIE
             R.id.nav_anim_objanim -> FragmentList.OBJECT_ANIM
             R.id.nav_anim_valanim -> FragmentList.VALUE_ANIM
             else -> null

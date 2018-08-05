@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:columnCount="2">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_drop"
+            android:layout_width="@dimen/lottie_anim_size"
+            android:layout_height="@dimen/lottie_anim_size"
+            app:lottie_rawRes="@raw/anim_drop" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_favourite"
+            android:layout_width="@dimen/lottie_anim_size"
+            android:layout_height="@dimen/lottie_anim_size"
+            app:lottie_rawRes="@raw/anim_favourite" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_done"
+            android:layout_width="@dimen/lottie_anim_size"
+            android:layout_height="@dimen/lottie_anim_size"
+            app:lottie_rawRes="@raw/anim_done" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_lego"
+            android:layout_width="@dimen/lottie_anim_size"
+            android:layout_height="@dimen/lottie_anim_size"
+            app:lottie_rawRes="@raw/anim_lego" />
+
+    </GridLayout>
+</FrameLayout>
