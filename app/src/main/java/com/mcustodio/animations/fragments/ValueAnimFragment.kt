@@ -14,26 +14,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
-import com.mcustodio.animations.databinding.FragmentTestBinding
+import com.mcustodio.animations.databinding.FragmentValanimBinding
 import com.mcustodio.animations.R
-import kotlinx.android.synthetic.main.fragment_test.view.*
+import kotlinx.android.synthetic.main.fragment_valanim.view.*
 
-class TestFragment : Fragment() {
+class ValueAnimFragment : Fragment() {
 
     private val viewModel by lazy {  ViewModelProviders.of(this).get(ViewModel::class.java) }
-    private lateinit var binding: FragmentTestBinding
+    private lateinit var binding: FragmentValanimBinding
     private var currentAnimation: ValueAnimator? = null
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_test, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_valanim, container, false)
         binding.setLifecycleOwner(this)
         binding.viewmodel = viewModel
         val view = binding.root
 
-        view.button_test_animateDynamic.setOnClickListener { animateDynamically() }
-        view.button_test_animateXML.setOnClickListener { animateXML() }
+        view.button_valanim_animateDynamic.setOnClickListener { animateDynamically() }
+        view.button_valanim_animateXML.setOnClickListener { animateXML() }
         return view
     }
 
@@ -44,7 +44,7 @@ class TestFragment : Fragment() {
             duration = viewModel.duration.value!!
             addUpdateListener {
                 val progress = animatedValue as Float
-                view?.text_test_string?.translationY = progress
+                view?.text_valanim_string?.translationY = progress
             }
             start()
         }
@@ -52,11 +52,11 @@ class TestFragment : Fragment() {
 
     private fun animateXML() {
         currentAnimation?.cancel()
-        currentAnimation = (AnimatorInflater.loadAnimator(context, R.animator.test_translatey) as ValueAnimator)
+        currentAnimation = (AnimatorInflater.loadAnimator(context, R.animator.valanim_translatey) as ValueAnimator)
                 .apply {
                     addUpdateListener {
                         val progress = animatedValue as Float
-                        view?.text_test_string?.translationY = progress
+                        view?.text_valanim_string?.translationY = progress
                     }
                     start()
                 }

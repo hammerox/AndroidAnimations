@@ -39,7 +39,7 @@ class ObjectAnimFragment: Fragment() {
 
     private fun animateDynamically() {
         currentAnimation?.cancel()
-        currentAnimation = ObjectAnimator.ofFloat(view?.text_objanim_string, "translationY", 0f, viewModel.finalValue.value!!)
+        currentAnimation = ObjectAnimator.ofFloat(view?.text_objanim_string, "translationY", viewModel.finalValue.value!!, 0f)
                 .apply {
                     interpolator = AccelerateDecelerateInterpolator()
                     duration = viewModel.duration.value!!

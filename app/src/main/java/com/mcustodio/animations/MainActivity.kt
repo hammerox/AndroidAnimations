@@ -7,8 +7,6 @@ import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
-import com.mcustodio.animations.fragments.ObjectAnimFragment
-import com.mcustodio.animations.fragments.TestFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
@@ -24,7 +22,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
-        val initialFragment = TestFragment()
+        val initialFragment = FragmentList.getFirst().create()
         supportFragmentManager.beginTransaction()
                 .add(R.id.layout_main_container, initialFragment)
                 .commit()
@@ -42,8 +40,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_anim_objanim -> replaceFragment(ObjectAnimFragment())
-            R.id.nav_anim_test -> replaceFragment(TestFragment())
+            R.id.nav_anim_objanim -> replaceFragment(FragmentList.OBJECT_ANIM.create())
+            R.id.nav_anim_valanim -> replaceFragment(FragmentList.VALUE_ANIM.create())
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)
