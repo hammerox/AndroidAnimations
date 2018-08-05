@@ -1,74 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    tools:context=".animTest.TestFragment">
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <TextView
-            android:id="@+id/text_test_string"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="#FFFFFF"
-            android:text="@string/hello_blank_fragment" />
-
-    </FrameLayout>
-
-    <!--Configurations-->
-
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:columnCount="2"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp">
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Duration" />
-
-        <EditText
-            android:id="@+id/edit_test_duration"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Final Value" />
-
-        <EditText
-            android:id="@+id/edit_test_finalvalue"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"/>
-
-    </GridLayout>
-
-    <!--Controls (Buttons)-->
-
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.anim.mcustodio.animations.animTest.TestFragment.TestViewModel" />
+    </data>
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:layout_height="match_parent"
+        android:gravity="center"
+        tools:context=".animTest.TestFragment">
 
-        <Button
-            android:id="@+id/button_test_animate"
-            android:layout_width="wrap_content"
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/text_test_string"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="#FFFFFF"
+                android:text="@string/hello_blank_fragment" />
+
+        </FrameLayout>
+
+        <!--Configurations-->
+
+        <GridLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Animate"/>
+            android:columnCount="2"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp">
 
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Duration" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={com.anim.mcustodio.animations.Converter.toString(viewmodel.duration)}"
+                android:inputType="number"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Final Value" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={com.anim.mcustodio.animations.Converter.toString(viewmodel.finalValue)}"
+                android:inputType="number"/>
+
+        </GridLayout>
+
+        <!--Controls (Buttons)-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/button_test_animate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Animate"/>
+
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</layout>
