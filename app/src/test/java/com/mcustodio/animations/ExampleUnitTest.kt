@@ -1,4 +1,4 @@
-package com.anim.mcustodio.animations
+package com.mcustodio.animations
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.anim.mcustodio.animations
+package com.mcustodio.animations
 
 import android.os.Bundle
 import android.support.design.widget.NavigationView
@@ -7,7 +7,7 @@ import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
-import com.anim.mcustodio.animations.animTest.TestFragment
+import com.mcustodio.animations.animTest.TestFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 

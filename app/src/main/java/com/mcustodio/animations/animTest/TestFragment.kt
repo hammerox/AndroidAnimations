@@ -1,4 +1,4 @@
-package com.anim.mcustodio.animations.animTest
+package com.mcustodio.animations.animTest
 
 
 import android.animation.AnimatorInflater
@@ -14,8 +14,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
-import com.anim.mcustodio.animations.R
-import com.anim.mcustodio.animations.databinding.FragmentTestBinding
+import com.mcustodio.animations.databinding.FragmentTestBinding
+import com.mcustodio.animations.R
 import kotlinx.android.synthetic.main.fragment_test.view.*
 
 class TestFragment : Fragment() {

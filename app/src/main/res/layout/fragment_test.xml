@@ -4,14 +4,14 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.anim.mcustodio.animations.animTest.TestFragment.TestViewModel" />
+            type="com.mcustodio.animations.animTest.TestFragment.TestViewModel" />
     </data>
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        tools:context=".animTest.TestFragment">
+        tools:context="com.mcustodio.animations.animTest.TestFragment">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -47,7 +47,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@={com.anim.mcustodio.animations.Converter.toString(viewmodel.duration)}"
+                android:text="@={com.mcustodio.animations.Converter.toString(viewmodel.duration)}"
                 android:inputType="number"/>
 
             <TextView
@@ -58,7 +58,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@={com.anim.mcustodio.animations.Converter.toString(viewmodel.finalValue)}"
+                android:text="@={com.mcustodio.animations.Converter.toString(viewmodel.finalValue)}"
                 android:inputType="number"/>
 
         </GridLayout>
