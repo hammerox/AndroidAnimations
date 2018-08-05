@@ -24,4 +24,12 @@ public class Converter {
     public static float toFloat(String value) {
         return Float.valueOf(value);
     }
+
+    @InverseMethod("toInt")
+    public static String toString(int value) {
+        return "" + value;
+    }
+    public static int toInt(String value) {
+        return Integer.valueOf(value);
+    }
 }

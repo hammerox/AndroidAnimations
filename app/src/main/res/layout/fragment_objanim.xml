@@ -36,6 +36,30 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="To Position" />
+
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:progress="@={viewmodel.seekbarPos}"
+                android:max="1000"
+                android:layout_gravity="center_vertical"
+                android:inputType="number"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="To Position (Click)" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={com.mcustodio.animations.Converter.toString(viewmodel.finalValue)}"
+                android:inputType="number"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -46,17 +70,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@={com.mcustodio.animations.Converter.toString(viewmodel.duration)}"
-                android:inputType="number"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="To Position" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@={com.mcustodio.animations.Converter.toString(viewmodel.finalValue)}"
                 android:inputType="number"/>
 
         </GridLayout>

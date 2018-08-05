@@ -6,6 +6,7 @@ import android.animation.ValueAnimator
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.MutableLiveData
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -34,6 +35,16 @@ class ObjectAnimFragment: Fragment() {
 
         view.button_objanim_animateDynamic.setOnClickListener { animateDynamically() }
         view.button_objanim_animateXML.setOnClickListener { animateXML() }
+
+        viewModel.seekbarPos.observe(this, Observer {
+            currentAnimation?.cancel()
+            currentAnimation = ObjectAnimator.ofFloat(view.text_objanim_string, "translationY", viewModel.seekbarPos.value!!.toFloat())
+                    .apply {
+                        interpolator = AccelerateDecelerateInterpolator()
+                        duration = viewModel.duration.value!!
+                        start()
+                    }
+        })
         return view
     }
 
@@ -61,10 +72,12 @@ class ObjectAnimFragment: Fragment() {
     class ViewModel(app: Application) : AndroidViewModel(app) {
         val duration = MutableLiveData<Long>()
         val finalValue = MutableLiveData<Float>()
+        val seekbarPos = MutableLiveData<Int>()
 
         init {
             duration.value = 200L
             finalValue.value = 800f
+            seekbarPos.value = 0
         }
     }
 }

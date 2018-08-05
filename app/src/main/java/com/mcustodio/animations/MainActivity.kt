@@ -1,5 +1,11 @@
 package com.mcustodio.animations
 
+import android.app.Application
+import android.arch.lifecycle.AndroidViewModel
+import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.MutableLiveData
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
@@ -12,6 +18,8 @@ import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+    private val viewModel by lazy { ViewModelProviders.of(this).get(ViewModel::class.java) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,12 +30,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
-        val initialFragment = FragmentList.getFirst().create()
-        supportFragmentManager.beginTransaction()
-                .add(R.id.layout_main_container, initialFragment)
-                .commit()
-
         nav_view.setNavigationItemSelectedListener(this)
+
+        viewModel.currentFragment.observe(this, Observer {
+            supportFragmentManager.beginTransaction()
+                    .replace(R.id.layout_main_container, it?.create())
+                    .commit()
+        })
+
+        if (viewModel.currentFragment.value == null) viewModel.currentFragment.value = FragmentList.getFirst()
     }
 
     override fun onBackPressed() {
@@ -39,18 +50,18 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.nav_anim_objanim -> replaceFragment(FragmentList.OBJECT_ANIM.create())
-            R.id.nav_anim_valanim -> replaceFragment(FragmentList.VALUE_ANIM.create())
+        viewModel.currentFragment.value = when (item.itemId) {
+            R.id.nav_anim_objanim -> FragmentList.OBJECT_ANIM
+            R.id.nav_anim_valanim -> FragmentList.VALUE_ANIM
+            else -> null
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
 
-    private fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-                .replace(R.id.layout_main_container, fragment)
-                .commit()
+
+    class ViewModel(app: Application) : AndroidViewModel(app) {
+        val currentFragment = MutableLiveData<FragmentList>()
     }
 }
