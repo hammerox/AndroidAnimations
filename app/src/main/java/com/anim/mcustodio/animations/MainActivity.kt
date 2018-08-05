@@ -41,9 +41,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_anim_test -> replaceFragment(TestFragment().apply {
-                this.arguments = Bundle().apply { this.putString("text", "example") }
-            })
+            R.id.nav_anim_test -> replaceFragment(TestFragment())
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)
