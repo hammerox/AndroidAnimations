@@ -23,8 +23,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:background="@color/colorPrimaryDark"
-                android:textColor="#FFFFFF"
                 android:text="@string/hello_blank_fragment" />
 
         </FrameLayout>
@@ -53,7 +51,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Final Value" />
+                android:text="To Position" />
 
             <EditText
                 android:layout_width="match_parent"

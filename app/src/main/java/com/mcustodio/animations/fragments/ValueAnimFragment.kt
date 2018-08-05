@@ -39,7 +39,7 @@ class ValueAnimFragment : Fragment() {
 
     private fun animateDynamically() {
         currentAnimation?.cancel()
-        currentAnimation = ValueAnimator.ofFloat(0f, viewModel.finalValue.value!!).apply {
+        currentAnimation = ValueAnimator.ofFloat(viewModel.finalValue.value!!).apply {
             interpolator = AccelerateDecelerateInterpolator()
             duration = viewModel.duration.value!!
             addUpdateListener {
@@ -70,7 +70,7 @@ class ValueAnimFragment : Fragment() {
 
         init {
             duration.value = 200L
-            finalValue.value = 500f
+            finalValue.value = 800f
         }
     }
 
