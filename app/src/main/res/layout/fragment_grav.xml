@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.github.glomadrian.grav.GravView
+        android:background="#000000"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:colorGenerator="com.github.glomadrian.grav.generator.paint.ArrayColorGenerator"
+        app:pointGenerator="com.github.glomadrian.grav.generator.point.RegularPointGenerator"
+        app:array_colors="@array/falcon"
+        app:regular_cell_size="100"
+        app:regular_variance="200"
+        app:gravGenerator="com.github.glomadrian.grav.generator.grav.RectangleGenerator"
+        app:rectangle_width="15dp"
+        app:rectangle_height="2dp"
+        app:animationGenerators="@array/FalconAnimations"
+        app:side_to_side_min_duration="400"
+        app:side_to_side_max_duration="800"
+        app:side_to_side_direction="rightToLeft"
+        app:shake_variance="5dp"
+        app:shake_direction="vertical"
+        />
+
+    <!--<com.github.glomadrian.grav.GravView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--app:colorGenerator="com.github.glomadrian.grav.generator.paint.ArrayColorGenerator"-->
+        <!--app:array_colors="@array/red"-->
+        <!--app:pointGenerator="com.github.glomadrian.grav.generator.point.RegularPointGenerator"-->
+        <!--app:regular_cell_size="150"-->
+        <!--app:regular_variance="100"-->
+        <!--app:gravGenerator="com.github.glomadrian.grav.generator.grav.BallGenerator"-->
+        <!--app:ball_size_from_size="3dp"-->
+        <!--app:ball_size_to_size="6dp"-->
+        <!--app:animationGenerators="@array/path"-->
+        <!--app:path_variance_from="-10dp"-->
+        <!--app:path_variance_to="12dp"-->
+        <!--app:path="M527.023,71.8233 C780.213,71.8233,985.464,277.075,985.464,530.265-->
+<!--C985.464,783.455,780.213,988.707,527.023,988.707-->
+<!--C273.832,988.707,68.5809,783.455,68.5809,530.265-->
+<!--C68.5809,277.075,273.832,71.8233,527.023,71.8233 Z"-->
+        <!--app:path_original_width="1062"-->
+        <!--app:path_original_height="1062"-->
+        <!--app:path_min_duration="5000"-->
+        <!--app:path_max_duration="6000"-->
+        <!--/>-->
+
+</FrameLayout>
